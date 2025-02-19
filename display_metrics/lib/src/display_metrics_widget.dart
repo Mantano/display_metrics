@@ -35,7 +35,7 @@ class _DisplayMetricsWidgetState extends State<DisplayMetricsWidget> {
     _updateData(
       devicePixelRatio,
       widget.updateSizeOnRotate ? MediaQuery.orientationOf(context) : null,
-    ).then((data) => data != null ? setState(() => _data = data) : null);
+    ).then((data) => data != null && mounted ? setState(() => _data = data) : null);
   }
 
   Future<DisplayMetricsData?> _updateData(
